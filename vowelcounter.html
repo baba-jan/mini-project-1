@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vowel Counter</title>
+    <style>
+      .container{
+        text-align: center;
+      }
+      textarea{
+        height: 300px;
+        width: 300px;
+      }
+    </style>
+</head>
+<body>
+    <div class="container"> 
+        <h1>VOWEL COUNTER</h1>
+
+    <textarea id="text-input" placeholder="Text here"></textarea>
+
+    <h2 id="vowel-count">Vowel Count: 0</h2>
+    <div class="button-container">
+        <button id="count-button">Check Vowels</button>
+        <button id="reset-button">Reset</button>
+    </div>
+
+    </div>
+    <script>
+      const textInput = document.getElementById('text-input');
+      const countButton = document.getElementById('count-button');
+      const resetButton = document.getElementById('reset-button');
+      const vowelCountDisplay = document.getElementById('vowel-count');
+
+       countButton.addEventListener('click', () => {
+       const text = textInput.value.toLowerCase();
+       let vowelCount = 0;
+
+    for (let i = 0; i < text.length; i++) {
+        if (['a', 'e', 'i', 'o', 'u'].includes(text[i])) {
+            vowelCount++;
+        }
+    }
+
+    vowelCountDisplay.textContent = `Vowel Count: ${vowelCount}`;
+});
+
+resetButton.addEventListener('click', () => {
+    textInput.value = '';
+    vowelCountDisplay.textContent = 'Vowel Count: 0';
+});
+    </script>
+</body>
+</html>

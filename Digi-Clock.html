@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+
+  display: flex;
+  justify-content: center;
+}
+
+.clock {
+  
+  color: black;
+  font-size: 48px;
+}
+    </style>
+</head>
+<body>
+    <div class="clock" id="clock"></div>
+    <script>
+        function newClock() {
+  const timer = document.getElementById('clock');
+  
+  const currentTime = new Date();
+  
+  let hours = currentTime.getHours();
+  let minutes = currentTime.getMinutes();
+  let seconds = currentTime.getSeconds();
+  
+  let clo = "AM";
+  if (hours >= 12) {
+    clo = "PM";
+  }
+  if (hours > 12) {
+    hours = hours- 12;
+  }
+
+  if (hours === 0) {
+    hours = 12;
+  }
+  if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
+
+  if (seconds < 10) {
+    seconds = "0" + seconds;
+  }
+  timer.textContent = hours + ":" + minutes + ":" + seconds + " " + clo;
+}
+setInterval(newClock, 1000);
+newClock();
+    </script>
+</body>
+</html>
